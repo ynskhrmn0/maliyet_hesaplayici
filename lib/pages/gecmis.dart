@@ -5,8 +5,10 @@ class Gecmis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Merhaba"),
+    return Center(
+      child: Container(
+        child: Text("YUNUS KAHRAMAN - 11 FEN A"),
+      ),
     );
   }
 }

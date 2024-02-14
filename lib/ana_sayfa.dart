@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:maliyet_hesaplayici/pages/altigen.dart';
 import 'package:maliyet_hesaplayici/pages/ana_menu.dart';
+import 'package:maliyet_hesaplayici/pages/dortgen.dart';
 import 'package:maliyet_hesaplayici/pages/gecmis.dart';
-
-void setPage() {}
+import 'package:maliyet_hesaplayici/pages/sekizgen.dart';
+import 'package:maliyet_hesaplayici/pages/silindir.dart';
+import 'package:maliyet_hesaplayici/providers/page_provider.dart';
+import 'package:provider/provider.dart';
 
 class AnaSayfa extends StatefulWidget {
   const AnaSayfa({super.key});
@@ -12,29 +16,35 @@ class AnaSayfa extends StatefulWidget {
 }
 
 class _AnaSayfaState extends State<AnaSayfa> {
-  int selectedpage = 0;
-
   final List<Widget> _pages = [
     AnaMenu(),
     Gecmis(),
+    Silindir(),
+    Dortgen(),
+    Altigen(),
+    Sekizgen()
   ];
 
   final List _titles = [
-    "ANA SAYFA",
-    "GEÇMİŞ",
+    "İÇECEK KUTULARI",
+    "CREDİTS",
+    "SİLİNDİR",
+    "DÖRTGEN",
+    "ALTIGEN",
+    "SEKİZGEN",
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple[400],
+          backgroundColor: Colors.grey[850],
           title: Center(
             child: Text(
-              _titles[selectedpage],
+              _titles[context.watch<PageProvider>().page],
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -44,7 +54,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
           leading: IconButton(
             onPressed: () {
               setState(() {
-                selectedpage = 0;
+                context.read<PageProvider>().changePage(newPage: 0);
               });
             },
             icon: Icon(
@@ -57,23 +67,20 @@ class _AnaSayfaState extends State<AnaSayfa> {
             IconButton(
               onPressed: () {
                 setState(() {
-                  selectedpage = 1;
+                  context.read<PageProvider>().changePage(newPage: 1);
                 });
               },
               icon: Icon(
-                Icons.history,
+                Icons.info_outline,
                 size: 35,
                 color: Colors.white,
               ),
             )
           ],
         ),
-        body: _pages[selectedpage],
-        backgroundColor: Colors.white,
+        body: _pages[context.watch<PageProvider>().page],
+        backgroundColor: Colors.grey[400],
       ),
-      routes: {
-        "/geçmiş": (context) => const Gecmis(),
-      },
     );
   }
 }

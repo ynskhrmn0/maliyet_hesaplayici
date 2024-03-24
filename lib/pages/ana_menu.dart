@@ -34,7 +34,10 @@ class _AnaMenuState extends State<AnaMenu> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    MaterialButton(
+                      onPressed: () {
+                        context.read<PageProvider>().changePage(newPage: 2);
+                      },
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       child: Text(
@@ -101,7 +104,7 @@ class _AnaMenuState extends State<AnaMenu> {
                 height: 225,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/dörtgen-kutu.jpg"),
+                    image: AssetImage("assets/dikdortgen-kutu.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -111,7 +114,10 @@ class _AnaMenuState extends State<AnaMenu> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    MaterialButton(
+                      onPressed: () {
+                        context.read<PageProvider>().changePage(newPage: 3);
+                      },
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       child: Text(
@@ -188,7 +194,10 @@ class _AnaMenuState extends State<AnaMenu> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    MaterialButton(
+                      onPressed: () {
+                        context.read<PageProvider>().changePage(newPage: 4);
+                      },
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       child: Text(
@@ -265,7 +274,7 @@ class _AnaMenuState extends State<AnaMenu> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    MaterialButton(
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       child: Text(
@@ -277,6 +286,9 @@ class _AnaMenuState extends State<AnaMenu> {
                           color: Colors.black,
                         ),
                       ),
+                      onPressed: () {
+                        context.read<PageProvider>().changePage(newPage: 5);
+                      },
                     ),
                     MaterialButton(
                       onPressed: () {
